@@ -404,7 +404,7 @@ and traceable to its effect on agent behaviour.
 | Primary loop termination signal? | `stop_reason == "end_turn"` |
 | What does `stop_reason == "tool_use"` require? | Execute ALL tools, append both turns, loop again |
 | Two critical appends? | Assistant turn + User turn (tool results) |
-| Missing Append 2 causes? | Infinite loop — Claude never sees tool results |
+| Missing Append 2 causes? | Error code: 400 — Claude never sees tool results |
 | `tool_choice = "any"` does what? | Forces Claude to call a tool — picks which |
 | Iteration cap is? | Safety net for bugs — NOT primary controller |
 | Tool result format required? | String — use `json.dumps()` |
