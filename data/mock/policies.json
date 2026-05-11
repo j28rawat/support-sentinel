@@ -1,0 +1,22 @@
+{
+  "return_policy": {
+    "standard_window_days": 30,
+    "gold_tier_window_days": 60,
+    "non_returnable_categories": [
+      "digital_downloads",
+      "perishables"
+    ],
+    "condition_requirements": "Item must be unused and in original packaging"
+  },
+  "refund_policy": {
+    "auto_approve_limit": 500.00,
+    "processing_days_credit_card": 3,
+    "processing_days_paypal": 5,
+    "requires_manager_approval_above": 500.00
+  },
+  "shipping_policy": {
+    "free_shipping_threshold": 50.00,
+    "express_available": true,
+    "lost_package_claim_days": 7
+  }
+}

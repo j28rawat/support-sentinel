@@ -1,0 +1,24 @@
+# ── Claude ──────────────────────────────────
+anthropic==0.40.0
+
+# ── Config & Validation ──────────────────────
+python-dotenv==1.0.0
+pydantic
+pydantic-settings
+
+# ── API (Day 10) ─────────────────────────────
+fastapi==0.109.0
+uvicorn==0.27.0
+httpx==0.26.0
+
+# ── CLI & Display ────────────────────────────
+rich==13.7.0
+typer==0.9.0
+
+# ── Dev & Testing ────────────────────────────
+pytest==7.4.4
+pytest-asyncio==0.23.3
+
+# ── Notebooks (optional) ─────────────────────
+jupyter==1.0.0
+ipykernel==6.29.0

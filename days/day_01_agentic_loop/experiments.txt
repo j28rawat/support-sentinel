@@ -1,0 +1,18 @@
+# Experiment 1 — Infinite loop bug
+# In sentinel/core/agentic_loop.py, comment out:
+#   messages.append({"role": "user", "content": tool_results})
+# Run Scenario 1. Claude calls get_customer forever.
+# RESTORE the line after observing.
+
+# Experiment 2 — Vague descriptions
+# In sentinel/tools/day_01/__init__.py, change lookup_order description to:
+#   "description": "Gets order information"
+# And get_order_history to:
+#   "description": "Gets order information for a customer"
+# Run Scenario 3. Watch misrouting.
+# RESTORE after observing.
+
+# Experiment 3 — Iteration cap as controller
+# In sentinel/core/agentic_loop.py, change max_iterations=10 to 2
+# Run Scenario 1. Agent cuts off mid-resolution.
+# RESTORE after observing.

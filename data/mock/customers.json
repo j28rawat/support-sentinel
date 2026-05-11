@@ -1,0 +1,32 @@
+[
+  {
+    "customer_id": "C001",
+    "name": "Sarah Mitchell",
+    "email": "sarah.mitchell@email.com",
+    "phone": "+1-555-0101",
+    "account_status": "active",
+    "tier": "gold",
+    "join_offset_days": -1200,
+    "total_orders": 47
+  },
+  {
+    "customer_id": "C002",
+    "name": "James Okonkwo",
+    "email": "james.okonkwo@email.com",
+    "phone": "+1-555-0102",
+    "account_status": "active",
+    "tier": "standard",
+    "join_offset_days": -450,
+    "total_orders": 8
+  },
+  {
+    "customer_id": "C003",
+    "name": "Priya Sharma",
+    "email": "priya.sharma@email.com",
+    "phone": "+1-555-0103",
+    "account_status": "active",
+    "tier": "standard",
+    "join_offset_days": -800,
+    "total_orders": 23
+  }
+]

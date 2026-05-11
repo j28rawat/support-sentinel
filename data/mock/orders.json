@@ -1,0 +1,83 @@
+[
+  {
+    "order_id": "ORD-10045",
+    "customer_id": "C001",
+    "status": "delivered",
+    "scenario_intent": "Recent delivery — always within 30-day return window",
+    "delivery_offset_days": -5,
+    "order_offset_days": -10,
+    "items": [
+      {
+        "product_id": "P201",
+        "name": "Wireless Noise-Cancelling Headphones",
+        "quantity": 1,
+        "price": 299.99
+      }
+    ],
+    "total_amount": 299.99,
+    "return_window_days": 30,
+    "payment_method": "credit_card",
+    "shipping_address": "123 Main St, Austin TX 78701"
+  },
+  {
+    "order_id": "ORD-10078",
+    "customer_id": "C002",
+    "status": "in_transit",
+    "scenario_intent": "In transit — no delivery date yet, used for discovery scenario",
+    "delivery_offset_days": null,
+    "order_offset_days": -3,
+    "estimated_delivery_offset_days": 2,
+    "items": [
+      {
+        "product_id": "P305",
+        "name": "Standing Desk Mat",
+        "quantity": 2,
+        "price": 45.00
+      }
+    ],
+    "total_amount": 90.00,
+    "return_window_days": 30,
+    "payment_method": "paypal",
+    "shipping_address": "456 Oak Ave, Denver CO 80201"
+  },
+  {
+    "order_id": "ORD-10091",
+    "customer_id": "C001",
+    "status": "delivered",
+    "scenario_intent": "High-value order — always within window, triggers $500 escalation",
+    "delivery_offset_days": -8,
+    "order_offset_days": -15,
+    "items": [
+      {
+        "product_id": "P410",
+        "name": "Smart Watch Ultra",
+        "quantity": 1,
+        "price": 549.00
+      }
+    ],
+    "total_amount": 549.00,
+    "return_window_days": 30,
+    "payment_method": "credit_card",
+    "shipping_address": "123 Main St, Austin TX 78701"
+  },
+  {
+    "order_id": "ORD-10102",
+    "customer_id": "C003",
+    "status": "delivered",
+    "scenario_intent": "Standard delivery — within return window",
+    "delivery_offset_days": -12,
+    "order_offset_days": -18,
+    "items": [
+      {
+        "product_id": "P118",
+        "name": "Yoga Mat Premium",
+        "quantity": 1,
+        "price": 85.00
+      }
+    ],
+    "total_amount": 85.00,
+    "return_window_days": 30,
+    "payment_method": "credit_card",
+    "shipping_address": "789 Pine Rd, Seattle WA 98101"
+  }
+]
