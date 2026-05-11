@@ -57,7 +57,7 @@ Then read the function in this order:
 
 3a. The messages list initialisation
     `messages = [{"role": "user", "content": initial_message}]`
-    This list IS Claude's memory. It grows by 2 entries per
+    This list is Claude's memory. It grows by 2 entries per
     tool-calling iteration. By end of Scenario 1: ~8 entries.
 
 3b. The while loop header
@@ -138,9 +138,35 @@ Then run: `python days/day_01_agentic_loop/exercise.py`
 ### Experiment 1 — Break the append (5 min)
 In `sentinel/core/agentic_loop.py`:
 Comment out: `messages.append({"role": "user", "content": tool_results})`
-Run Scenario 1. Watch Claude call get_customer 10 times.
-This is the most common beginner mistake AND a favourite exam trap.
-Restore the line.
+Run Scenario 1.
+
+You will NOT see Claude call get_customer 10 times.
+You will see this instead:
+
+    anthropic.BadRequestError: 400
+    'tool_use ids were found without tool_result blocks
+    immediately after: toolu_01D1AAc...
+    Each tool_use block must have a corresponding
+    tool_result block in the next message.'
+
+This is more instructive than an infinite loop.
+The Anthropic API enforces the contract at the protocol level —
+it REFUSES to process a conversation where a tool_use block
+has no corresponding tool_result. It does not silently misbehave.
+
+What this tells you:
+  - The append is not optional or best-practice — it is REQUIRED
+  - The API validates message structure before Claude ever sees it
+  - A missing append is an immediate hard failure, not a subtle bug
+  - This is why the exam asks about append order — it is the
+    single most critical implementation detail in the agentic loop
+
+The exam distractor will say:
+  "Missing tool results causes Claude to repeat the same tool call"
+The correct answer is:
+  "Missing tool results causes an immediate API validation error"
+
+Restore the line before continuing.
 
 ### Experiment 2 — Vague descriptions (5 min)
 In `sentinel/tools/day_01/__init__.py`:

@@ -148,8 +148,11 @@ A) The tool description for `get_customer` is too detailed
 
 B) `tool_choice` is set to `"any"`, forcing repeated tool calls
 
-C) Tool results from `get_customer` are not being appended
-   to the conversation history after execution
+C) Tool results from get_customer are not being appended...
+   The API immediately returns a 400 BadRequestError because
+   every tool_use block must have a corresponding tool_result
+   block in the next message — the conversation is structurally
+   invalid without it.
 
 D) The system prompt creates a circular dependency
 

@@ -9,6 +9,7 @@ Run: pytest tests/test_day_01.py -v
 import pytest
 import sys
 import os
+from datetime import date
 
 sys.path.insert(0, os.path.abspath(
     os.path.join(os.path.dirname(__file__), "..")
