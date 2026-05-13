@@ -21,7 +21,7 @@ in the project follows it:
 
 ## 📖 Reading Order
 
-### 1. Configuration Foundation (5 min)
+### 1. Configuration Foundation
 📄 `sentinel/config/settings.py`
 
 What to find:
@@ -32,7 +32,7 @@ What to find:
 
 ---
 
-### 2. The API Wrapper (10 min)
+### 2. The API Wrapper
 📄 `sentinel/core/claude_client.py`
 
 What to find:
@@ -49,7 +49,7 @@ A module-level `client = Anthropic()` can't be mocked cleanly.
 
 ---
 
-### 3. The Heart (30 min — read every line)
+### 3. The Heart (read every line)
 📄 `sentinel/core/agentic_loop.py`
 
 Read the ASCII diagram at the top first.
@@ -84,7 +84,7 @@ Then read the function in this order:
 
 ---
 
-### 4. The Types (5 min)
+### 4. The Types
 📄 `sentinel/core/types.py`
 
 Find `AgentResponse` and its helper methods:
@@ -95,7 +95,7 @@ These are used in tests and the result summary table.
 
 ---
 
-### 5. Day 1 Tools — Frozen Snapshot (20 min)
+### 5. Day 1 Tools — Frozen Snapshot
 📄 `sentinel/tools/day_01/customer_tools.py`
 
 Read each function's docstring.
@@ -110,7 +110,7 @@ will show you exactly why each fix matters.
 
 ---
 
-### 6. The Tool Registry (15 min)
+### 6. The Tool Registry
 📄 `sentinel/tools/day_01/__init__.py`
 
 Read `ALL_TOOL_DEFINITIONS` — the 5 tool description dicts.
@@ -124,7 +124,7 @@ Note: returns `json.dumps(result)` — strings required.
 
 ---
 
-### 7. The Exercise (10 min — read before running)
+### 7. The Exercise (read before running)
 📄 `days/day_01_agentic_loop/exercise.py`
 
 Read `SCENARIOS` dict — understand what each scenario tests.
@@ -135,7 +135,7 @@ Then run: `python days/day_01_agentic_loop/exercise.py`
 
 ## 🧪 Experiments (Do These — They Teach More Than Reading)
 
-### Experiment 1 — Break the append (5 min)
+### Experiment 1 — Break the append
 In `sentinel/core/agentic_loop.py`:
 Comment out: `messages.append({"role": "user", "content": tool_results})`
 Run Scenario 1.
@@ -168,14 +168,14 @@ The correct answer is:
 
 Restore the line before continuing.
 
-### Experiment 2 — Vague descriptions (5 min)
+### Experiment 2 — Vague descriptions
 In `sentinel/tools/day_01/__init__.py`:
 Change lookup_order description to: `"Gets order information"`
 Change get_order_history description to: `"Gets order info for customer"`
 Run Scenario 3 (James, no order ID). Watch misrouting.
 Restore descriptions.
 
-### Experiment 3 — Iteration cap as controller (5 min)
+### Experiment 3 — Iteration cap as controller
 In `sentinel/core/agentic_loop.py`:
 Change `max_iterations=10` to `max_iterations=2`.
 Run Scenario 1. Agent cuts off mid-resolution.

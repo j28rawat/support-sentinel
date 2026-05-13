@@ -18,7 +18,7 @@ Before reading any Day 2 code, confirm this:
 
 ## 📖 Reading Order
 
-### 1. Read First — The Error Foundation (10 min)
+### 1. Read First — The Error Foundation
 📄 `sentinel/tools/day_02/error_schemas.py`
 
 Read the module docstring. Find the table of four categories.
@@ -29,18 +29,20 @@ Then read each constructor function — notice what changes:
     business_rule_error     is_retryable=False  (business)
     permission_error        is_retryable=False  (permission)
 
+text```
 Key distinction to memorise:
     not_found_error     → record doesn't exist (don't retry)
     service_unavailable → service is down (do retry)
     Both return error=True, but for completely different reasons.
     Claude uses error_category to distinguish them.
+```
 
 Find the EXAM TRAP comment about empty results vs errors.
 This is tested in both Task Statement 2.2 and 5.3.
 
 ---
 
-### 2. The Boundary Pattern — Two Customer Tools (10 min)
+### 2. The Boundary Pattern — Two Customer Tools
 📄 `sentinel/tools/day_02/customer_tools.py`
 
 Read the WHEN TO USE and WHEN NOT TO USE for both functions.
@@ -60,7 +62,7 @@ Claude to retry a query that will never succeed.
 
 ---
 
-### 3. The Separation Pattern — Order Tools (10 min)
+### 3. The Separation Pattern — Order Tools
 📄 `sentinel/tools/day_02/order_tools.py`
 
 Read the module docstring — specifically WHY two tools
@@ -76,7 +78,7 @@ Same pattern as search_customers — valid empty, not an error.
 
 ---
 
-### 4. The Prerequisite Chain — Refund Tools (15 min)
+### 4. The Prerequisite Chain — Refund Tools
 📄 `sentinel/tools/day_02/refund_tools.py`
 
 Read the module docstring. Find this section:
@@ -98,7 +100,7 @@ in action.
 
 ---
 
-### 5. The Scoping Pattern — Shipping Tools (10 min)
+### 5. The Scoping Pattern — Shipping Tools
 📄 `sentinel/tools/day_02/shipping_tools.py`
 
 Read the module docstring. Find the explanation of why
@@ -116,7 +118,7 @@ used for orders is applied to tracking events.
 
 ---
 
-### 6. Escalation Design — Escalation Tools (10 min)
+### 6. Escalation Design — Escalation Tools
 📄 `sentinel/tools/day_02/escalation_tools.py`
 
 Read the module docstring. Find the explicit criteria table:
@@ -140,7 +142,7 @@ a specific failure mode.
 
 ---
 
-### 7. The Central Registry — Most Important Read (20 min)
+### 7. The Central Registry — Most Important Read
 📄 `sentinel/tools/day_02/__init__.py`
 
 This is the most important file in Day 2.
@@ -167,7 +169,7 @@ routing reliability. This is the exam's core lesson.
 
 ---
 
-### 8. Run and Observe — The Exercise (20 min)
+### 8. Run and Observe — The Exercise
 📄 `days/day_02_tool_design/exercise.py`
 
 Run Part 1 first. With vague descriptions and customer C002
@@ -186,20 +188,20 @@ This is structured error recovery, not generic failure handling.
 
 ## 🧪 Experiments
 
-### Experiment 1 — Make descriptions identical (5 min)
+### Experiment 1 — Make descriptions identical
 In sentinel/tools/day_02/__init__.py, change lookup_order
 description to exactly match get_order_history:
     "Gets order information for a customer."
 Run exercise Part 1. Claude now cannot distinguish between them.
 Restore after observing.
 
-### Experiment 2 — Remove is_retryable from business error (5 min)
+### Experiment 2 — Remove is_retryable from business error
 In error_schemas.py, change business_rule_error to
 is_retryable=True. Run exercise Part 3. Observe whether
 Claude attempts to retry the refund or escalates.
 Restore after observing.
 
-### Experiment 3 — Make empty result an error (5 min)
+### Experiment 3 — Make empty result an error
 In order_tools.py, change get_order_history to return
 error=True when orders list is empty. Run a scenario with
 customer C999 (no orders). Watch Claude retry or escalate
