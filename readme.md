@@ -65,11 +65,12 @@ python days/day_01_agentic_loop/exercise.py
 
 Each day's folder contains:
 
+```text
 days/day_XX_topic/
 ├── NAVIGATION.md   read-in-this-order guide with line references
 ├── STUDY_GUIDE.md  concepts + 10-15 exam Q&As with explanations
 └── exercise.py     runnable script demonstrating the day's concepts
-
+```
 ---
 
 ## Running Any Day
@@ -109,6 +110,8 @@ and runs correctly in 6 months regardless of what later days add.
 ---
 
 ## Project Structure
+
+```text
 sentinel/
 ├── core/           agentic loop, Claude client, types
 ├── tools/day_XX/   frozen tool snapshots per day
@@ -119,6 +122,7 @@ sentinel/
 ├──  days/           one folder per learning day
 ├──  data/mock/      dynamic mock e-commerce data
 └── tests/          unit tests — no API calls required
+```
 
 ---
 
