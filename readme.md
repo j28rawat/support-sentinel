@@ -21,7 +21,7 @@ runnable forever.
 
 ```bash
 # 1. Clone
-git clone https://github.com/YOUR_USERNAME/support-sentinel.git
+git clone https://github.com/j28rawat/support-sentinel.git
 cd support-sentinel
 
 # 2. Environment
