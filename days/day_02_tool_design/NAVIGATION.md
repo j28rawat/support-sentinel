@@ -186,6 +186,7 @@ routing reliability. This is the exam's core lesson.
 ### 8. Run and Observe — The Exercise
 📄 `days/day_02_tool_design/exercise.py`
 
+```
 Run Part 1 first. With vague descriptions and customer C002
 (no order ID provided), watch what Claude calls.
 Expected: get_order_history
@@ -197,7 +198,7 @@ Claude should now correctly call get_order_history.
 Then run Part 3. Watch Claude route to escalate_to_human
 based on the business error from process_refund.
 This is structured error recovery, not generic failure handling.
-
+```
 ---
 
 ## 🧪 Experiments
