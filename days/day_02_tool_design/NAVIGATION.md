@@ -194,6 +194,28 @@ Possible with vague: lookup_order (can't tell them apart)
 Note: You may observe Claude routing CORRECTLY even with vague descriptions.
 This is expected with a strong model on a simple message.
 
+What this actually teaches:
+    Vague descriptions create PROBABILISTIC routing, not
+    guaranteed failure. On simple, unambiguous messages a
+    capable model often guesses correctly.
+
+    The real risk appears when:
+    - Tool count grows beyond 10
+    - Two tools have nearly identical names AND descriptions
+    - The customer message is genuinely ambiguous
+
+    Example: "Can you check my order?" with tools named
+    lookup_order and get_order_history, both described as
+    "Gets order information" — Claude has no signal to choose.
+
+    At scale (thousands of conversations), even a 5% misrouting
+    rate across 10 tools compounds into significant errors.
+    Rich descriptions eliminate that variance entirely.
+
+The exam tests the PRINCIPLE (descriptions drive selection,
+rich descriptions prevent misrouting) not whether misrouting
+always occurs. Know why it matters even when it doesn't fail.
+
 Then run Part 2. Same message. Same tools. Rich descriptions.
 Claude should now correctly call get_order_history.
 
