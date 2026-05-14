@@ -95,11 +95,25 @@ D) Merge both tools into one `get_order_data` tool
 **✅ Answer: C**
 
 Tool descriptions are the primary mechanism Claude uses for
-tool selection. When two descriptions are identical or near-
-identical, Claude cannot distinguish between them. Adding
-explicit boundaries ("WHEN NOT TO USE: Customer has provided
-an order ID — use lookup_order instead") gives Claude the
-signal it needs at selection time.
+tool selection. When descriptions are vague, Claude relies
+on semantic similarity between the message and tool names —
+which works for simple cases but fails at scale and on
+genuinely ambiguous inputs.
+
+IMPORTANT EXAM NUANCE:
+    A strong model may route correctly even with vague descriptions
+    on simple messages. The exam tests whether you understand WHY
+    rich descriptions matter — not whether vague descriptions
+    always fail.
+
+    The risk: at scale, vague descriptions create variance.
+    5% misrouting across 1000 conversations = 50 wrong tool calls.
+    Rich descriptions eliminate that variance entirely.
+
+    The exam question will present a PRODUCTION scenario where
+    misrouting is observed in logs — and ask for the fix.
+    The fix is always rich descriptions, regardless of whether
+    every single call fails.
 
 Option B (system prompt) is less reliable — descriptions
 are the selection signal, not the system prompt.
