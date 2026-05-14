@@ -191,6 +191,8 @@ Run Part 1 first. With vague descriptions and customer C002
 (no order ID provided), watch what Claude calls.
 Expected: get_order_history
 Possible with vague: lookup_order (can't tell them apart)
+Note: You may observe Claude routing CORRECTLY even with vague descriptions.
+This is expected with a strong model on a simple message.
 
 Then run Part 2. Same message. Same tools. Rich descriptions.
 Claude should now correctly call get_order_history.
