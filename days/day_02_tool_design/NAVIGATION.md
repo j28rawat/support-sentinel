@@ -162,6 +162,7 @@ This is the most important file in Day 2.
 Read ALL_TOOL_DEFINITIONS and VAGUE_TOOL_DEFINITIONS
 side by side for the same tools.
 
+```
 Example — lookup_order:
 
 VAGUE:
@@ -175,6 +176,7 @@ RICH:
     WHEN TO USE: Customer provides a specific order ID.
     WHEN NOT TO USE: Customer says 'my order' without an ID —
     use get_order_history to find which order they mean."
+```
 
 Same tool. Same implementation. Completely different
 routing reliability. This is the exam's core lesson.
