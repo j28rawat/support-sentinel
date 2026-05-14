@@ -70,12 +70,15 @@ Read the module docstring — specifically WHY two tools
 instead of one merged tool.
 
 Then read both descriptions focusing on the boundary:
+
     lookup_order:      "WHEN NOT TO USE: use get_order_history"
     get_order_history: "WHEN NOT TO USE: use lookup_order"
 
+```
 Find get_order_history's empty result:
     error=False, orders=[], order_count=0
 Same pattern as search_customers — valid empty, not an error.
+```
 
 ---
 
@@ -83,6 +86,7 @@ Same pattern as search_customers — valid empty, not an error.
 📄 `sentinel/tools/day_02/refund_tools.py`
 
 Read the module docstring. Find this section:
+
     TODAY (Day 2): Description-based enforcement (probabilistic)
     DAY 7:         Programmatic enforcement (deterministic)
 
@@ -90,9 +94,11 @@ This is the most important thing to understand in Day 2.
 You will experience the probabilistic version running today.
 Day 7 will show you why that's insufficient for financial ops.
 
+```
 Find process_refund's business rule check:
     if amount > settings.refund_approval_limit:
         return business_rule_error(..., requires_escalation=True)
+```
 
 The requires_escalation=True flag is what tells Claude to
 call escalate_to_human next. Claude reads this flag and
