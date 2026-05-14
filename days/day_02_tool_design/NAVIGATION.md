@@ -113,9 +113,11 @@ in action.
 Read the module docstring. Find the explanation of why
 shipping tools are separated from order tools.
 
+```
 Find track_shipment's description:
     "WHEN NOT TO USE: Order status questions — use lookup_order.
      Refund questions — use refund tools."
+```
 
 This tool explicitly redirects to other tools for adjacent
 but different use cases. Three-way disambiguation.
@@ -128,15 +130,18 @@ used for orders is applied to tracking events.
 ### 6. Escalation Design — Escalation Tools
 📄 `sentinel/tools/day_02/escalation_tools.py`
 
+```
 Read the module docstring. Find the explicit criteria table:
     ✓ Customer explicitly requests human
     ✓ Refund exceeds limit
     ✓ Policy is ambiguous
     ✗ Customer is frustrated (NOT a trigger)
     ✗ Case seems complex (NOT a trigger)
+```
 
 Find the five required parameters of escalate_to_human.
 Understand why each one exists:
+
     customer_id:           Human pulls up the account
     issue_summary:         What customer wants
     investigation_summary: What was already tried
