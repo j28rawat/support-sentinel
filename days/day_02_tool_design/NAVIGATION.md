@@ -53,11 +53,13 @@ Find where each description explicitly names the other tool:
 This cross-referencing is what prevents misrouting.
 Without it, Claude has no signal to choose between them.
 
+```
 Find the empty search result return:
     error=False, matches=[], match_count=0
 This is NOT an error. A customer not being found is a valid
 outcome, not a failure. Marking it error=True would cause
 Claude to retry a query that will never succeed.
+```
 
 ---
 
