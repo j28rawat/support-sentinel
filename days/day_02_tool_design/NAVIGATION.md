@@ -29,13 +29,11 @@ Then read each constructor function — notice what changes:
     business_rule_error     is_retryable=False  (business)
     permission_error        is_retryable=False  (permission)
 
-text```
 Key distinction to memorise:
     not_found_error     → record doesn't exist (don't retry)
     service_unavailable → service is down (do retry)
     Both return error=True, but for completely different reasons.
     Claude uses error_category to distinguish them.
-```
 
 Find the EXAM TRAP comment about empty results vs errors.
 This is tested in both Task Statement 2.2 and 5.3.
