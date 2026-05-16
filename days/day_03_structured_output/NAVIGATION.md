@@ -15,7 +15,7 @@
 
 ## 📖 Reading Order
 
-### 1. Read First — The Schema (15 min)
+### 1. Read First — The Schema
 📄 `sentinel/extraction/schemas.py`
 
 Read the module docstring. Find this distinction:
@@ -44,7 +44,7 @@ unknown issue types without losing the information.
 
 ---
 
-### 2. The Extractor (25 min — read carefully)
+### 2. The Extractor
 📄 `sentinel/extraction/incident_extractor.py`
 
 Read the module docstring. Find:
@@ -77,7 +77,7 @@ Find _validate():
 
 ---
 
-### 3. The Validator (10 min)
+### 3. The Validator
 📄 `sentinel/extraction/validator.py`
 
 Find is_retry_worthwhile(). Read both pattern lists:
@@ -95,7 +95,7 @@ the order ID won't appear on the next attempt.
 
 ---
 
-### 4. Day 3 Tool Registry (10 min)
+### 4. Day 3 Tool Registry
 📄 `sentinel/tools/day_03/__init__.py`
 
 Notice the import pattern:
@@ -120,7 +120,7 @@ Clean routing. No duplication.
 
 ---
 
-### 5. Run the Exercise (30 min)
+### 5. Run the Exercise
 📄 `days/day_03_structured_output/exercise.py`
 
 Run Part 1 first. Observe:
@@ -146,7 +146,7 @@ Run Part 4. Observe tool_choice:
 
 ## 🧪 Experiments
 
-### Experiment 1 — Remove nullable from amount (5 min)
+### Experiment 1 — Remove nullable from amount
 In schemas.py, change:
     "type": ["number", "null"]
 to:
@@ -161,7 +161,7 @@ with use_few_shot=False and compare the key_facts format.
 Without examples, key_facts may be verbose sentences.
 With examples, key_facts are short phrases.
 
-### Experiment 3 — Blind retry vs feedback retry (5 min)
+### Experiment 3 — Blind retry vs feedback retry
 In incident_extractor.py, change _build_retry_prompt to
 return the same prompt as _build_prompt (remove the error).
 Run Part 3. Observe whether the same error repeats.
